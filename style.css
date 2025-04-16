@@ -2,69 +2,216 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 .main-header {
-  background-color: rgba(0, 0, 0, 0.3);
-  padding-bottom: 10px;
+  background: linear-gradient(135deg, #232f3e, #0073bb);
+  padding: 20px 0;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .title {
   text-align: center;
   margin: 0;
-  font-size: 8em;
-  font-family: "Helvetica";
-  font-weight: normal;
+  font-size: 4em;
+  font-weight: 600;
   color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 #card-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 20px;
+  gap: 15px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   margin: 5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: white;
+  overflow: hidden;
+  cursor: pointer; /* Change cursor to pointer for clickable cards */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  background-color: #f9f9f9; /* Slight background change on hover */
+}
+
+/* Link effect when clicking */
+.card:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-content {
-  padding: 20px;
-  font-family: "Verdana";
-  color: #777;
+  padding: 15px;
+  font-family: "Segoe UI", sans-serif;
+  color: #444;
 }
 
 .card-content h2 {
   margin-top: 0;
-  font-size: 20px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #232f3e;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: 0 auto 15px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 50%;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+}
+
+.card li {
+  padding: 6px 0;
+  font-size: 14px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.card li:first-child {
+  border-top: none;
+}
+
+.card li strong {
+  margin-right: 5px;
+  color: #0073bb;
+}
+
+/* Category colors */
+.card .category strong {
+  color: #ff9900;
+}
+
+/* Visit link icon */
+.card:after {
+  content: "→";
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  color: #0073bb;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 18px;
+}
+
+.card:hover:after {
+  opacity: 1;
 }
 
 .footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 10px;
+  background: linear-gradient(135deg, #232f3e, #0073bb);
+  padding: 15px;
+  position: sticky;
+  bottom: 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
 }
 
 button {
-  text-align: center;
-  background-color: #666;
-  border: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 40px;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 15px;
+  height: auto;
+  border-radius: 6px;
   color: white;
-  font-size: 22px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
   margin: 5px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+button:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5em;
+  }
+  
+  #card-container {
+    gap: 10px;
+  }
+  
+  .card {
+    width: calc(50% - 15px);
+  }
+}
+
+
+.add-service-form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-service-form h3 {
+  text-align: center;
+  color: #232f3e;
+  margin-top: 0;
+}
+
+.add-service-form input,
+.add-service-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-service-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0073bb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-service-form button:hover {
+  background-color: #005d96;
 }

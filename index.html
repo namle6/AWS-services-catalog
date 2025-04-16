@@ -1,31 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
+    <title>AWS Solution Architect journey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Catalog of Services in AWS Solution Architect exam" />
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
   </head>
 
   <body>
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <h1 class="title">Your journey to become AWS Certified Cloud Architect</h1>
     </header>
+
+    <div class="add-service-form">
+      <h3>Add New Service</h3>
+      <input type="text" id="serviceName" placeholder="Service Name">
+      <select id="serviceCategory">
+        <option value="Compute">Compute</option>
+        <option value="Storage">Storage</option>
+        <option value="Database">Database</option>
+        <option value="Networking">Networking</option>
+        <option value="Security">Security</option>
+        <option value="Management">Management</option>
+        <option value="Integration">Integration</option>
+      </select>
+      <input type="number" id="serviceYear" placeholder="Year Created">
+      <input type="text" id="serviceLogo" placeholder="Logo URL">
+      <input type="text" id="serviceUrl" placeholder="Service URL">
+      <button onclick="addServiceFromForm()">Add Service</button>
+    </div> 
+
     <div id="card-container"></div>
+    
     <div class="card" style="display: none">
       <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
+        <h2>AWS Service Name</h2>
+        <img src="" alt="Service Logo" />
+
         <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
+          <li class="category"><strong>Category:</strong> Compute</li>
+          <li class="year"><strong>Year Created:</strong> 2006</li>
         </ul>
       </div>
     </div>
+
+
+
     <div class="footer">
-      <button onclick="quoteAlert();">Get A Quote!</button>
-      <button onclick="removeLastCard();">Remove A Card!</button>
+      <button onclick="showCards()">Show All Services</button>
+      <button onclick="showCompute()">Compute Services</button>
+      <button onclick="showStorage()">Storage Services</button>
+      <button onclick="showDatabase()">Database Services</button>
+      <button onclick="showNetworking()">Networking Services</button>
+      <button onclick="showSecurity()">Security Services</button>
+      <button onclick="showManagement()">Management Services</button>
+      <button onclick="showIntegration()">Integration Services</button>
+      <button onclick="sortOldest()">Sort Oldest</button>
+      <button onclick="sortNewest()">Sort Newest</button>
+      <button onclick="removeLastCard();">Remove Last Card</button>
     </div>
+
+    <script type="text/javascript" src="scripts.js"></script>
   </body>
 </html>
