@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: skylounge
+  namespace: namespace-workflow-1748330777527
+  labels:
+    app.kubernetes.io/name: skylounge
+    kubernetes.azure.com/generator: devhub
+spec:
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/name: skylounge
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
